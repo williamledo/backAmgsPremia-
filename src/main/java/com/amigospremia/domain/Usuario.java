@@ -41,7 +41,7 @@ public class Usuario implements Serializable {
 	private Boolean ativo = true;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "varchar(255) default 'USER'")
 	private UserRole role = UserRole.USER;
 	
 	@CreationTimestamp
