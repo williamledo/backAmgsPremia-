@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,6 +22,12 @@ public class CampanhaController {
 
     @Autowired
     private UsuarioRepository usuarioRepo;
+
+    @GetMapping
+    public ResponseEntity<List<Campanha>> listarCampanhas() {
+        List<Campanha> campanhas = campanhaRepo.findAll();
+        return ResponseEntity.ok(campanhas);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Campanha> getCampanha(@PathVariable Long id) {
